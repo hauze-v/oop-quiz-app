@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Adam Hauze">
+  <meta name="description"
+    content="The purpose of this app is to practice and learn JS by building a fun quiz application.">
+  <link rel="stylesheet" href="styles.css">
+  <title>Object-Oriented JS Quiz App</title>
+</head>
+
+<body>
+  <div class="app">
+    <div class="container">
+      <div class="jabquiz">
+
+        <!-- Header section that contains the question and progress information -->
+        <div class="jabquiz__question-box">
+          <h1 class="jabquiz__question">Who is the first president of the USA?</h1>
+          <p class="jabquiz__tracker">1 of 7</p>
+          <div class="progress">
+            <div class="progress__inner"></div>
+          </div>
+          <p class="jabquiz__tagline">Pick an option below!</p>
+        </div>
+
+        <!-- Body section that contains the choices and radio buttons -->
+        <div class="jabquiz__choices-box">
+          <ul class="jabquiz__choices">
+            <!-- dynamically created with javascript -->
+            <li class="jabquiz__choice">
+              <input type="radio" name="choice" class="jabquiz__input" id="choice-A" checked>
+              <label for="choice-A" class="jabquiz__label">
+                <!-- This is to dynamically set an image later in JS -->
+                <i></i>
+                Martin Luther King
+              </label>
+            </li>
+            <li class="jabquiz__choice">
+              <input type="radio" name="choice" class="jabquiz__input" id="choice-B">
+              <label for="choice-B" class="jabquiz__label">
+                <!-- This is to dynamically set an image later in JS -->
+                <i></i>
+                Martin Luther King
+              </label>
+            </li>
+            <li class="jabquiz__choice">
+              <input type="radio" name="choice" class="jabquiz__input" id="choice-C">
+              <label for="choice-C" class="jabquiz__label">
+                <!-- This is to dynamically set an image later in JS -->
+                <i></i>
+                Martin Luther King
+              </label>
+            </li>
+            <li class="jabquiz__choice">
+              <input type="radio" name="choice" class="jabquiz__input" id="choice-D" checked>
+              <label for="choice-D" class="jabquiz__label">
+                <!-- This is to dynamically set an image later in JS -->
+                <i></i>
+                Martin Luther King
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Footer section that contains Next and Restart buttons -->
+        <div class="footer">
+          <button class="jabquiz__button button-bordered next">Next</button>
+          <button class="jabquiz__button button-bordered restart">Restart</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
