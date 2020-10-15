@@ -38,5 +38,30 @@
 }
 .jabquiz__choices {
   list-style: none;
-  
+}
+.jabquiz__choice {
+
+}
+.jabquiz__input {
+
+}
+.jabquiz__label {
+
+}
+
+/* --- Footer Styles (Next and Restart buttons) --- */
+.footer {
+  width: 75%;
+  margin: 4rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+.jabquiz__button {
+  width: 49%;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.jabquiz__button:hover {
+  cursor: pointer;
 }
