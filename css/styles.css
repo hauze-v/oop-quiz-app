@@ -8,10 +8,35 @@
   margin: 0 auto;
 }
 .jabquiz__question-box {
-  border: 2px solid red;
   padding: 2rem;
   text-align: center;
 }
 .jabquiz__question {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.jabquiz__tracker {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.progress {
+  border: 2px solid red;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+.jabquiz__tagline {
+  font-size: 1.2rem;
+}
+
+/* --- Body Styles (Choices & Radio Buttons) --- */
+.jabquiz__choices-box {
+ border: 2px solid red;
+ width: 75%;
+ margin: 0 auto;
+ padding: 3rem;
+}
+.jabquiz__choices {
+  list-style: none;
   
 }
