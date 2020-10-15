@@ -1,10 +1,27 @@
+/* --- Fonts --- */
+@import url("https:fonts.googleapis.com/css?family=Raleway|PT+Serif:700");
+
+/* --- Variables --- */
+:root {
+  --main-font-color: #1a1a1a;
+  --main-bg-color: white;
+  --main-theme-color: rgb(243, 168, 47);
+  --light-white: #f5f5f5;
+  --light-gray: #ccc;
+  --light-black: #282a39;
+  --font-body-stack: Ralwway, Charcoal, sans-serif;
+  --font-heading-stack: "PT Serif", sans-serif;
+  --container-width: 768px;
+}
+
+/* --- Basic Styles --- */
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
 }
-.jabquiz {
-  width: 65%;
+.container {
+  max-width: var(--container-width);
   margin: 0 auto;
 }
 .jabquiz__question-box {
@@ -12,35 +29,60 @@
   text-align: center;
 }
 .jabquiz__question {
+  font-family: var(--font-heading-stack);
+  font-weight: bold;
+  letter-spacing: 1.5px;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
+  color: var(--main-font-color);
 }
 .jabquiz__tracker {
+  font-family: var(--font-body-stack);
+  color: var(--light-black);
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
 .progress {
-  border: 2px solid red;
+  border-radius: 4px;
   width: 50%;
   margin: 0 auto;
   margin-bottom: 1rem;
+  background-color: var(--light-white);
+}
+.progress__inner {
+  height: 10px;
+  width: 0%;
+  background-color: var(--main-theme-color);
+  border-right: 2px solid black;
 }
 .jabquiz__tagline {
+  font-family: var(--font-body-stack);
+  color: var(--light-gray);
   font-size: 1.2rem;
 }
 
 /* --- Body Styles (Choices & Radio Buttons) --- */
 .jabquiz__choices-box {
- border: 2px solid red;
  width: 75%;
  margin: 0 auto;
- padding: 3rem;
+ padding: 1rem;
+ border: 2px solid red;
 }
 .jabquiz__choices {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 }
 .jabquiz__choice {
-
+  min-width: 250px;
+  border-radius: 4px;
+  display: block;
+  background: var(--light-white);
+  margin: 0.5rem auto;
+  font-family: sans-serif;
+  color: var(--light-black);
+  letter-spacing: 1px;
+  font-size: 0.86rem;
 }
 .jabquiz__input {
 
@@ -61,7 +103,15 @@
   outline: none;
   padding: 0.5rem;
   border-radius: 5px;
+  border: 0;
+  text-transform: uppercase;
+  transition: 0.3s all ease;
+  opacity: 0.9;
+  font-weight: bold;
 }
 .jabquiz__button:hover {
   cursor: pointer;
+  opacity: 1;
+  background: var(--light-black);
+  color: white;
 }
