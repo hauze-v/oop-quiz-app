@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+.jabquiz {
+  width: 65%;
+  margin: 0 auto;
+}
+.jabquiz__question-box {
+  border: 2px solid red;
+  padding: 2rem;
+  text-align: center;
+}
+.jabquiz__question {
+  
+}
