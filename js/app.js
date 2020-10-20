@@ -9,5 +9,16 @@ const q5 = new Question("What is the profession of his soon-to-be wife?", ["Acco
 
 const qArray = [q1, q2, q3, q4, q5];
 
-const myQuiz = new Quiz(qArray);
-console.log(myQuiz.guess("hey"));
+/* We use an IIFE (Immediately Invoked Function Expression) to run the app */
+const App = (() => {
+  /* Cache the DOM */
+  const quizEl = document.querySelector(".quiz");
+  const quizQuestionEl = document.querySelector(".quiz__question");
+  const trackerEl = document.querySelector(".quiz__tracker");
+  const progressEl = document.querySelector(".progress__inner");
+  const taglineEl = document.querySelector(".quiz__tagline");
+  const choicesEl = document.querySelector(".quiz__choices");
+  const restartButtonEl = document.querySelector(".restart");
+  const nextButtonEl = document.querySelector(".next");
+})();
+
