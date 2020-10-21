@@ -22,4 +22,29 @@ const App = (() => {
 
   /* Initialize Quiz object */
   const myQuiz = new Quiz([q1, q2, q3, q4, q5]);
+
+  /* Render Question Function */
+  const renderQuestion = () => {
+    const question = myQuiz.getCurrentQuestion().question;
+    quizQuestionEl.innerHTML = question;
+  }
+
+  renderQuestion();
+
+  const renderAll = () => {
+    if(quizEl.hasEnded()) {
+      // renderEndScreen
+    } else {
+      // 1. render the question
+      // 2. render the choices elements
+      // 3. render tracekr
+      // 4. render the progress bar
+    }
+  }
+
+
+
+
+
+
 })();

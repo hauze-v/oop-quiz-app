@@ -24,16 +24,28 @@
   max-width: var(--container-width);
   margin: 0 auto;
 }
+.quiz__title {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 2rem;
+}
+.quiz__separator {
+  height: 2px;
+  width: 75%;
+  background-color: red;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
 .quiz__question-box {
   padding: 1rem 2rem;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
   text-align: center;
 }
 .quiz__question {
   font-family: var(--font-heading-stack);
   font-weight: bold;
   letter-spacing: 1.5px;
-  font-size: 2rem;
+  font-size: 1.7rem;
   margin-bottom: 1rem;
   color: var(--main-font-color);
 }
@@ -60,6 +72,7 @@
   font-family: var(--font-body-stack);
   color: var(--light-gray);
   font-size: 1.2rem;
+  padding-top: 1rem;
 }
 
 /* --- Body Styles (Choices & Radio Buttons) --- */
