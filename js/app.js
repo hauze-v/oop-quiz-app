@@ -23,21 +23,54 @@ const App = (() => {
   /* Initialize Quiz object */
   const myQuiz = new Quiz([q1, q2, q3, q4, q5]);
 
+  /* Helper function for setting inner HTML value */
+  const setValue = (elem, value) => {
+    elem.innerHTML = value;
+  }
+
   /* Render Question Function */
   const renderQuestion = () => {
     const question = myQuiz.getCurrentQuestion().question;
-    quizQuestionEl.innerHTML = question;
+    setValue(quizQuestionEl, question);
   }
 
-  renderQuestion();
+  /* Render the Choices Elements */
+  const renderChoicesElements = () => {
+    /* Start with empty markup string */
+    let markup = "";
+    const currentChoices = myQuiz.getCurrentQuestion().choices; // grab the array of choices
+
+    /* Loop through the choices and run this function for each */
+    currentChoices.forEach((elem, index) => {
+      markup += `
+        <li class="quiz__choice">
+          <input type="radio" name="choice" class="quiz__input" id="choice${index}" checked>
+          <label for="choice${index}" class="quiz__label">
+            <i></i>
+            <span>${elem}</span>
+          </label>
+        </li>
+      `
+    });
+
+    /* Assign the dynamic markup to the innerHTML of choicesEl DOM element (ul) */
+    setValue(choicesEl, markup);
+  }
+
+  /* Render Question Tracker */
+  const renderTracker = () => {
+    const index = myQuiz.currentIndex;
+    setValue(trackerEl, `${index+1} of ${myQuiz.questions.length}`);
+  }
 
   const renderAll = () => {
-    if(quizEl.hasEnded()) {
+    if (quizEl.hasEnded()) {
       // renderEndScreen
     } else {
-      // 1. render the question
-      // 2. render the choices elements
-      // 3. render tracekr
+      renderQuestion();
+      renderChoicesElements();
+      renderTracker();
+      
       // 4. render the progress bar
     }
   }

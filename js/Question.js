@@ -1,6 +1,6 @@
 export default function Question(question, choices, answerkey) {
   this.question = question;
-  this.choiecs = choices;
+  this.choices = choices;
   this.answerkey = answerkey;
 }
 

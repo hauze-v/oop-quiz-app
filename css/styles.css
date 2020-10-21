@@ -103,6 +103,10 @@
 .quiz__choices input:checked + label i {
   background-image: url("../images/check.svg");
 }
+.quiz__choices input + label i:hover,
+.quiz__choices input + label span:hover {
+  cursor: pointer;
+}
 .quiz__choice {
   min-width: 250px;
   border-radius: 4px;
