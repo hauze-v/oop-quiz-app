@@ -63,21 +63,44 @@ const App = (() => {
     setValue(trackerEl, `${index+1} of ${myQuiz.questions.length}`);
   }
 
+  const getPercentage = (num1, num2) => {
+    return Math.round((num1/num2) * 100);
+  }
+
+  const launch = (width, maxPercent) => {
+    let loadingBar = setInterval(function() {
+      if (width > maxPercent) {
+        clearInterval(loadingBar);
+      } else {
+        width++;
+        progressInnerEl.style.width = width + "%";
+      }
+    })
+  }
+  /* Render Progress Bar */
+  const renderProgress = () => {
+    // 1. get the width
+    const currentWidth = getPercentage(myQuiz.currentIndex, myQuiz.questions.length);
+  
+    // 2. Use launch function to setup setInterval and handle loadingBar
+    launch(0, currentWidth);
+  }
+
+  /* If quiz hasn't ended, call render methods */
   const renderAll = () => {
-    if (quizEl.hasEnded()) {
+    if (myQuiz.hasEnded()) {
       // renderEndScreen
     } else {
       renderQuestion();
       renderChoicesElements();
       renderTracker();
-      
-      // 4. render the progress bar
+      renderProgress();
     }
   }
 
-
-
-
-
-
+  return {
+    renderAll: renderAll
+  }
 })();
+
+App.renderAll();
