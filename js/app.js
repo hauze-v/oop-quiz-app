@@ -18,13 +18,32 @@ const App = (() => {
   const q2 = new Question("Which of the following is NOT a hobby of his?", ["Running", "Gaming", "Snowboarding", "Reading"], 0);
   const q3 = new Question("What sport did he play most growing up?", ["Baseball", "Football", "Track & Field", "Basketball"], 3);
   const q4 = new Question("What generation is he in his family lineage?", ["Jr.", "III", "IV", "V"], 3);
-  const q5 = new Question("What is the profession of his soon-to-be wife?", ["Accountant", "Nurse", "Marketing Director", "Yoga Instructor"], 1);
+  const q5 = new Question("What company does he work for?", ["IBM", "PWC", "Delliote", "Accenture"], 0);
 
   /* Initialize Quiz object */
   const myQuiz = new Quiz([q1, q2, q3, q4, q5]);
 
   /* Event Listener Functions */
-  
+  const listeners = () => {
+    nextButtonEl.addEventListener("click", function() {
+      const selectedRadioElem = document.querySelector('input[name="choice"]:checked'); // this grabs all inputs with attribute name of "choice" and pulls the one that's checked
+
+      // If a choice IS selected, AKA it exists (otherwise, maybe implement a modal pop-up here?)
+      if (selectedRadioElem) {
+        const choiceKey = Number(selectedRadioElem.getAttribute("data-order")); // Grab the data-order attribute from input element and convert it to Number
+
+        /* Check if the user guess is correct */
+        myQuiz.guess(choiceKey);
+
+        /* Since guess() changes score and question index, we have to re-run renderAll() */
+        renderAll();
+      }
+    })
+
+    restartButtonEl.addEventListener("click", function() {
+      console.log("clicked restart");
+    })
+  }
 
   /* Helper function for setting inner HTML value */
   const setValue = (elem, value) => {
@@ -47,7 +66,7 @@ const App = (() => {
     currentChoices.forEach((elem, index) => {
       markup += `
         <li class="quiz__choice">
-          <input type="radio" name="choice" class="quiz__input" id="choice${index}" checked>
+          <input type="radio" name="choice" class="quiz__input" id="choice${index}" data-order="${index}">
           <label for="choice${index}" class="quiz__label">
             <i></i>
             <span>${elem}</span>
@@ -78,7 +97,7 @@ const App = (() => {
         clearInterval(loadingBar);
       } else {
         width++;
-        progressInnerEl.style.width = width + "%";
+        progressEl.style.width = width + "%";
       }
     })
   }
@@ -91,10 +110,22 @@ const App = (() => {
     launch(0, currentWidth);
   }
 
+  /* Render End Screen */
+  const renderEndScreen = () => {
+    /* Change the HTML values to let the use know the guiz is over and give them their score */
+    setValue(quizQuestionEl, `Great Job!`);
+    setValue(taglineEl, `Complete`);
+    setValue(trackerEl, `Your score: ${getPercentage(myQuiz.score, myQuiz.questions.length)}%`)
+
+    /* Hide the next button */
+    nextButtonEl.style.opacity = 0;
+    renderProgress(); // Render progress bar once more
+  }
+
   /* If quiz hasn't ended, call render methods */
   const renderAll = () => {
     if (myQuiz.hasEnded()) {
-      // renderEndScreen
+      renderEndScreen();
     } else {
       renderQuestion();
       renderChoicesElements();
@@ -105,8 +136,10 @@ const App = (() => {
 
   /* Return an object with containing the renderAll() function */
   return {
-    renderAll: renderAll
+    renderAll: renderAll,
+    listeners: listeners
   }
 })();
 
 App.renderAll();
+App.listeners();
