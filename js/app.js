@@ -23,6 +23,9 @@ const App = (() => {
   /* Initialize Quiz object */
   const myQuiz = new Quiz([q1, q2, q3, q4, q5]);
 
+  /* Event Listener Functions */
+  
+
   /* Helper function for setting inner HTML value */
   const setValue = (elem, value) => {
     elem.innerHTML = value;
@@ -63,10 +66,12 @@ const App = (() => {
     setValue(trackerEl, `${index+1} of ${myQuiz.questions.length}`);
   }
 
+  /* Render Progress Helper Function - Calculates Percentage */
   const getPercentage = (num1, num2) => {
     return Math.round((num1/num2) * 100);
   }
 
+  /* Render Progress Helper Function - Sets LoadingBar Interval */
   const launch = (width, maxPercent) => {
     let loadingBar = setInterval(function() {
       if (width > maxPercent) {
@@ -77,12 +82,12 @@ const App = (() => {
       }
     })
   }
+
   /* Render Progress Bar */
   const renderProgress = () => {
-    // 1. get the width
+    // Get the width
     const currentWidth = getPercentage(myQuiz.currentIndex, myQuiz.questions.length);
-  
-    // 2. Use launch function to setup setInterval and handle loadingBar
+    // Use launch function to setup setInterval and handle loadingBar
     launch(0, currentWidth);
   }
 
@@ -98,6 +103,7 @@ const App = (() => {
     }
   }
 
+  /* Return an object with containing the renderAll() function */
   return {
     renderAll: renderAll
   }
