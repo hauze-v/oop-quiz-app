@@ -2,6 +2,7 @@ import Question from "./Question.js";
 import Quiz from "./Quiz.js";
 
 /* We use an IIFE (Immediately Invoked Function Expression) to run the app */
+/* This is also called the 'revealing module design pattern' where we only expose two functions at the end */
 const App = (() => {
   /* Cache the DOM */
   const quizEl = document.querySelector(".quiz");
@@ -41,7 +42,10 @@ const App = (() => {
     })
 
     restartButtonEl.addEventListener("click", function() {
-      console.log("clicked restart");
+      myQuiz.reset(); // reset the score and currentIndex
+      renderAll(); // re-render the page
+      nextButtonEl.style.opacity = 1; // restore the next button
+      setValue(taglineEl, `Pick an option below`); // restore the tagline to original text
     })
   }
 

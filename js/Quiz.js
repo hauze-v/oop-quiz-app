@@ -27,3 +27,8 @@ Quiz.prototype.guess = function(userGuess) {
   /* Go to the next question */
   this.nextIndex();
 }
+
+Quiz.prototype.reset = function() {
+  this.currentIndex = 0;
+  this.score = 0;
+}
