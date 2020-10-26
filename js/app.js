@@ -129,7 +129,7 @@ const App = (() => {
         setValue(quizQuestionEl, `Two lucky guesses or you just barely know him.`);
         break;
       case 60:
-        setValue(quizQuestionEl, `You must be colleague of his.`);
+        setValue(quizQuestionEl, `You must be a colleague of his.`);
         break;
       case 80:
         setValue(quizQuestionEl, `Nice! You know him well.`);
