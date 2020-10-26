@@ -15,7 +15,7 @@ const App = (() => {
   const nextButtonEl = document.querySelector(".next");
 
   /* Create the question objects and add them to the quiz initialization */
-  const q1 = new Question("How old is Adam?", [25, 26, 27, 28], 1);
+  const q1 = new Question("How old is he?", [25, 26, 27, 28], 1);
   const q2 = new Question("Which of the following is NOT a hobby of his?", ["Running", "Gaming", "Snowboarding", "Reading"], 0);
   const q3 = new Question("What sport did he play most growing up?", ["Baseball", "Football", "Track & Field", "Basketball"], 3);
   const q4 = new Question("What generation is he in his family lineage?", ["Jr.", "III", "IV", "V"], 3);
@@ -117,9 +117,29 @@ const App = (() => {
   /* Render End Screen */
   const renderEndScreen = () => {
     /* Change the HTML values to let the use know the guiz is over and give them their score */
-    setValue(quizQuestionEl, `Great Job!`);
+    let finalScore = getPercentage(myQuiz.score, myQuiz.questions.length);
+    switch(finalScore) {
+      case 0:
+        setValue(quizQuestionEl, `Oof... you don't know him at all, do you?`);
+        break;
+      case 20:
+        setValue(quizQuestionEl, `Well one of your guesses was successful...`);
+        break;
+      case 40:
+        setValue(quizQuestionEl, `Two lucky guesses or you just barely know him.`);
+        break;
+      case 60:
+        setValue(quizQuestionEl, `You must be colleague of his.`);
+        break;
+      case 80:
+        setValue(quizQuestionEl, `Nice! You know him well.`);
+        break;
+      case 100:
+        setValue(quizQuestionEl, `Great job! You must be a close friend.`);
+        break;
+    }
     setValue(taglineEl, `Complete`);
-    setValue(trackerEl, `Your score: ${getPercentage(myQuiz.score, myQuiz.questions.length)}%`)
+    setValue(trackerEl, `Your score: ${finalScore}%`)
 
     /* Hide the next button */
     nextButtonEl.style.opacity = 0;

@@ -3,12 +3,10 @@
 
 /* --- Variables --- */
 :root {
-  --main-font-color: #1a1a1a;
-  --main-bg-color: white;
-  --main-theme-color: rgb(243, 168, 47);
-  --light-white: #f5f5f5;
-  --light-gray: #ccc;
-  --light-black: #282a39;
+  --dark-blue: #14274e;
+  --dark-gray: #394867;
+  --light-gray: #9ba4b4;
+  --off-white: #f1f6f9;
   --font-body-stack: Ralwway, Charcoal, sans-serif;
   --font-heading-stack: "PT Serif", sans-serif;
   --container-width: 768px;
@@ -22,17 +20,21 @@
 }
 .container {
   max-width: var(--container-width);
-  margin: 0 auto;
+  margin: 4rem auto;
+  background-color: var(--off-white);
+  border-radius: 4px;
 }
 .quiz__title {
   margin-top: 1rem;
+  padding-top: 1rem;
   text-align: center;
   font-size: 2rem;
+  font-family: var(--font-heading-stack);
 }
 .quiz__separator {
   height: 2px;
-  width: 75%;
-  background-color: red;
+  width: 85%;
+  background-color: #394867;
   margin: 0 auto;
   margin-top: 2rem;
 }
@@ -47,11 +49,11 @@
   letter-spacing: 1.5px;
   font-size: 1.7rem;
   margin-bottom: 1rem;
-  color: var(--main-font-color);
+  color: var(--dark-blue);
 }
 .quiz__tracker {
   font-family: var(--font-body-stack);
-  color: var(--light-black);
+  color: var(--light-gray);
   font-size: 1rem;
   margin-bottom: 1rem;
 }
@@ -60,13 +62,12 @@
   width: 50%;
   margin: 0 auto;
   margin-bottom: 1rem;
-  background-color: var(--light-white);
+  background-color: var(--light-gray);
 }
 .progress__inner {
   height: 10px;
   width: 0%;
-  background-color: var(--main-theme-color);
-  border-right: 2px solid black;
+  background-color: var(--dark-gray);
 }
 .quiz__tagline {
   font-family: var(--font-body-stack);
@@ -87,7 +88,7 @@
   flex-wrap: wrap;
 }
 .quiz__choices input:checked + label {
-  color: var(--main-theme-color);
+  color: var(--light-gray);
 }
 .quiz__choices label i {
   background: url("../images/circle-outline.svg");
@@ -113,7 +114,7 @@
   display: block;
   margin: 0.5rem auto;
   font-family: sans-serif;
-  color: var(--light-black);
+  color: var(--dark-blue);
   letter-spacing: 1px;
   font-size: 0.86rem;
 }
@@ -130,7 +131,8 @@
 /* --- Footer Styles (Next and Restart buttons) --- */
 .footer {
   width: 75%;
-  margin: 4rem auto;
+  margin: 2rem auto;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
 }
@@ -144,10 +146,25 @@
   transition: 0.3s all ease;
   opacity: 0.9;
   font-weight: bold;
+  background: var(--dark-gray);
+  color: white;
 }
 .quiz__button:hover {
   cursor: pointer;
   opacity: 1;
-  background: var(--light-black);
+  background: var(--light-gray);
   color: white;
+}
+footer {
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 0.6rem;
+  font-family: var(--font-body-stack);
+}
+footer a {
+  text-decoration: none;
+}
+.quiz__icon {
+  margin: 1rem;
+  width: 25px;
 }
