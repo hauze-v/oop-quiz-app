@@ -20,7 +20,7 @@
 }
 .container {
   max-width: var(--container-width);
-  margin: 4rem auto;
+  margin: 6rem auto;
   background-color: var(--off-white);
   border-radius: 4px;
 }
@@ -78,9 +78,9 @@
 
 /* --- Body Styles (Choices & Radio Buttons) --- */
 .quiz__choices-box {
- width: 75%;
- margin: 0 auto;
- padding: 2rem;
+  width: 75%;
+  margin: 0 auto;
+  padding: 2rem;
 }
 .quiz__choices {
   list-style: none;
