@@ -20,7 +20,7 @@
 }
 .container {
   max-width: var(--container-width);
-  margin: 6rem auto;
+  margin: 10rem auto;
   background-color: var(--off-white);
   border-radius: 4px;
 }
